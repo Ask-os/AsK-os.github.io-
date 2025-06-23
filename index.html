@@ -1,361 +1,992 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="TemplateMo">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santiago Camacho - Desarrollador Backend</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="icon" type="image/ico" href="assets/images/icon.png">
-
-
-    <title>Mi Sitio</title>
-
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
-
-    <link rel="stylesheet" href="assets/css/templatemo-lava.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/owl-carousel.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --dark-color: #1f2937;
+            --light-gray: #f8fafc;
+            --border-color: #e5e7eb;
+            --text-muted: #6b7280;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Navbar */
+        .navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            color: var(--text-muted) !important;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 80%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 0 4rem;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--dark-color);
+        }
+
+        .hero-highlight {
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .btn-custom {
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            color: white;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+            color: white;
+        }
+
+        .btn-outline-custom {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline-custom:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .profile-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            font-weight: 700;
+        }
+
+        /* Section Styles */
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Skill Cards */
+        .skill-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            height: 100%;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        /* Progress Bars */
+        .progress-custom {
+            height: 10px;
+            border-radius: 10px;
+            background: var(--light-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-bar-custom {
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 10px;
+            transition: width 1s ease-in-out;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            position: relative;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 2rem;
+            width: 15px;
+            height: 15px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--primary-color);
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            height: 100%;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .tech-tag {
+            background: var(--light-gray);
+            color: var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 0.2rem;
+            display: inline-block;
+        }
+
+        /* Contact Section */
+        .contact-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: var(--light-gray);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--light-gray);
+            color: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .marquee {
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 1rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: scroll 25s linear infinite;
+            font-weight: 500;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .timeline {
+                padding-left: 1.5rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
-    <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-
-    <header class="header-area header-sticky">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <a href="index.html" class="logo">
-                            Azteca
-                        </a>
-                        <ul class="nav">
-                            <li class="scroll-to-section"><a href="#welcome" class="menu-item">Acerca de mi</a></li>
-                            <li class="scroll-to-section"><a href="#experiencia" class="menu-item">Experiencia</a></li>
-                            <li class="scroll-to-section"><a href="#proyectos" class="menu-item">Proyectos</a>
-                            </li>
-                            <li class="submenu">
-                                <a href="javascript:;">Redes Sociales</a>
-                                <ul>
-                                    <li><a href="#contact-us" class="menu-item"><img src="assets/images/xn.png" alt="Mi Icono" style="width:15px; height:15px;"> X</a></li>
-                                    <li><a href="#contact-us" class="menu-item"><i class="fa fa-github"></i> GitHub</a></li>
-                                    <li><a href="#contact-us" class="menu-item"><i class="fa fa-linkedin"></i> Linkedin</a></li>
-                                </ul>
-                            </li>
-                            <li class="scroll-to-section"><a href="#contact-us" class="menu-item">Contactame</a></li>
-                            
-                        </ul>
+            <a class="navbar-brand" href="#inicio">Santiago Camacho</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#habilidades">Habilidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experiencia">Experiencia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#proyectos">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 fade-in">
+                    <h1 class="hero-title">
+                        Hola, soy Santiago Camacho Parra
+                    </h1>
+                    <p class="hero-subtitle">
+                        Desarrollador Backend especializado en Python y Django. Creo soluciones robustas, 
+                        seguras y escalables que impulsan el crecimiento de las empresas.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#proyectos" class="btn-custom btn-primary-custom">
+                            <i class="fas fa-code"></i>
+                            Ver Proyectos
                         </a>
-                    </nav>
+                        <a href="#contacto" class="btn-custom btn-outline-custom">
+                            <i class="fas fa-envelope"></i>
+                            Contactar
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center fade-in">
+                    <div class="profile-card">
+                        <div class="profile-avatar">SC</div>
+                        <h4 class="fw-bold mb-2">Desarrollador Backend</h4>
+                        <p class="text-muted mb-0">Python • Django • MySQL</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <div class="welcome-area" id="welcome">
-
-        <div class="header-text">
-            <div class="container">
-                <div class="row">
-                    <div class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
-                        data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                        <h1>Bienvenido a mi <em>Currículum Vitae</em></h1>
-                        <p>
-                            Mi nombre es <strong>Santiago Camacho Parra</strong>. Soy un entusiasta de la tecnología con un fuerte interés en la <strong>programacón</strong>, <strong>ciberseguridad</strong> y la automatización.  
-                            Poseo conocimientos sólidos en <strong>bases de datos</strong>, así como en el uso de <strong>terminales de shell</strong> como <em>bash</em> y <em>zsh</em> para tareas de administración y scripting.  
-                            Manejo el lenguaje de programación <strong>Python</strong> y utilizo el framework <strong>Django</strong> como backend gracias a su arquitectura robusta y su enfoque en la <strong>seguridad</strong>
+    <!-- Skills Section -->
+    <section id="habilidades" class="section-padding">
+        <div class="container">
+            <h2 class="section-title fade-in">Mis Habilidades</h2>
+            <p class="section-subtitle fade-in">
+                Tecnologías y herramientas que domino para crear soluciones efectivas
+            </p>
+            
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Python & Django</h4>
+                        <p class="text-muted">
+                            Desarrollo de aplicaciones web robustas y escalables utilizando Django como 
+                            framework principal, aprovechando su enfoque en seguridad y arquitectura modular.
                         </p>
-                        <a href="assets/files/Curriculum Vitae.pdf" class="main-button-slider">Descargar Curiculum</a>
-                        <a href="index_en.html" class="main-button-slider">Traducir Pagina a Ingles</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Bases de Datos</h4>
+                        <p class="text-muted">
+                            Diseño y optimización de bases de datos relacionales con MySQL, garantizando 
+                            la integridad de los datos y consultas eficientes para aplicaciones de alto rendimiento.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-terminal"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Administración de Sistemas</h4>
+                        <p class="text-muted">
+                            Experiencia en entornos Linux, automatización con scripts Bash/Zsh, y gestión 
+                            de servidores para optimizar procesos y mejorar la productividad.
+                        </p>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Progress Bars -->
+            <div class="row">
+                <div class="col-lg-8 mx-auto fade-in">
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span><i class="fab fa-linux me-2"></i>Linux</span>
+                            <span class="fw-bold">70%</span>
+                        </div>
+                        <div class="progress-custom">
+                            <div class="progress-bar-custom" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span><i class="fab fa-python me-2"></i>Django</span>
+                            <span class="fw-bold">70%</span>
+                        </div>
+                        <div class="progress-custom">
+                            <div class="progress-bar-custom" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span><i class="fas fa-database me-2"></i>MySQL</span>
+                            <span class="fw-bold">60%</span>
+                        </div>
+                        <div class="progress-custom">
+                            <div class="progress-bar-custom" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span><i class="fab fa-html5 me-2"></i>HTML/CSS</span>
+                            <span class="fw-bold">50%</span>
+                        </div>
+                        <div class="progress-custom">
+                            <div class="progress-bar-custom" style="width: 75%;"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <section class="section" id="about">
+    <!-- Experience Section -->
+    <section id="experiencia" class="section-padding bg-light">
         <div class="container">
-            <div class="row mb-5">
-                <div class="col-12 text-center">
-                    <h2 style="font-weight: bold;">Conocimientos</h2>
-                </div>
-            </div>
+            <h2 class="section-title fade-in">Experiencia Profesional</h2>
+            <p class="section-subtitle fade-in">
+                Mi trayectoria profesional y formación académica
+            </p>
             
             <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
-                    data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                    <div class="features-item">
-                        <div class="features-icon">
-                            <img src="assets/images/django.png" alt="Logo de Django" class="tech-logo" width="170px">
-                            <h4>DJANGO</h4>
-                            <p>Utilizo Django como framework de desarrollo web debido a su robustez y enfoque en la seguridad desde el inicio. Su arquitectura modular me permite desarrollar aplicaciones escalables y seguras rápidamente, lo que optimiza los tiempos de desarrollo.</p>
+                <div class="col-lg-8 mx-auto">
+                    <div class="timeline fade-in">
+                        <div class="timeline-item">
+                            <h4 class="fw-bold mb-2">Soporte Técnico - Entidad Pública</h4>
+                            <div class="text-primary fw-bold mb-3">6 meses</div>
+                            <p class="text-muted mb-0">
+                                Brindé soporte técnico integral en sistemas informáticos, incluyendo mantenimiento 
+                                de equipos, gestión de backups de bases de datos y apoyo en procesos de gestión 
+                                contable, mejorando la eficiencia operativa de la institución.
+                            </p>
                         </div>
-                    </div>                    
-                </div>
-    
-                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
-                    data-scroll-reveal="enter bottom move 30px over 0.6s after 0.4s">
-                    <div class="features-item">
-                        <div class="features-icon">
-                            <img src="assets/images/mysql.png" alt="Logo de mysql" class="tech-logo" width="170px">
-                            <h4>BASE DE DATOS</h4>
-                            <p>Trabajo con bases de datos porque me permiten almacenar, organizar y consultar grandes volúmenes de datos de forma eficiente. Las bases de datos relacionales, como MySQL, son fundamentales para mis proyectos ya que proporcionan la estructura necesaria para manejar la información de manera fiable y escalable.</p>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
-                    data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
-                    <div class="features-item">
-                        <div class="features-icon">
-                            <img src="assets/images/terminal2.png" alt="Logo de shell" class="tech-logo" width="170px">
-                            <h4>SHELLS</h4>
-                            <p>Uso Shell (bash/zsh) para administrar entornos Unix/Linux y automatizar tareas repetitivas. Estas terminales me permiten gestionar procesos, realizar scripting avanzado y optimizar la administración del sistema de manera eficiente. Gracias a su flexibilidad, puedo personalizar y automatizar flujos de trabajo, lo que me ahorra tiempo y mejora la productividad en mis proyectos.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <div class="left-image-decor"></div>
-    <section class="section" id="promotion">
-        <div class="container">
-            <div class="row">
-                <div class="left-image col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix-big"
-                    data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                    <img src="assets/images/foto.jpeg" class="rounded img-fluid d-block mx-auto custom-border" alt="Imagen de formación o trabajo">
-                </div>
-
-                <div class="right-text offset-lg-1 col-lg-6 col-md-12 col-sm-12 mobile-bottom-fix">
-                    <ul>
-                        <li data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
-                            <img src="assets/images/conocimiento.png" alt="Logo de conocimiento" class="tech-logo" width="100px">
-                            <div class="text">
-                                <h4>Formación Académica</h4>
-                                <p>Técnico en Sistemas - SENA</p> 
-                                <p>Tecnólogo en Análisis y Desarrollo de Software - SENA</p>
-                            </div>
-                        </li>
-                        <li data-scroll-reveal="enter right move 30px over 0.6s after 0.5s">
-                            <img src="assets/images/terminal.png" alt="Logo de terminal" class="tech-logo" width="100px">
-                            <div class="text">
-                                <h4>Áreas de Especialización</h4>
-                                <p>Desarrollo Backend con Python y Django, bases de datos relacionales como MySQL, automatización con scripts en Shell, y fundamentos en ciberseguridad.</p>
-                            </div>
-                        </li>
-                        <li data-scroll-reveal="enter right move 30px over 0.6s after 0.6s">
-                            <img src="assets/images/check2.png" alt="Logo de objetivo" class="tech-logo" width="100px">
-                            <div class="text">
-                                <h4>Objetivo Profesional</h4>
-                                <p>Aplicar mis conocimientos en desarrollo y seguridad informática para crear soluciones confiables, automatizadas y seguras en entornos reales.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>    
-
-    <div class="right-image-decor"></div>
-
-    <section class="section" id="proyectos">
-        <div class="container">
-            <div class="row">
-                <section class="section" id="experiencia">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="center-heading text-center">
-                                    <h2>Experiencia <em>Laboral</em></h2>
-                                </div>
-                                <div class="experience-item mt-4">
-                                    <h5><strong>Entidad Pública – Soporte Técnico</strong> / 6 meses</h5>
-                                    <p>Durante seis meses trabajé en una entidad pública brindando soporte técnico en sistemas informáticos, mantenimiento de equipos, backups de la base de datos y apoyo en la gestión contable.</p>
-                                </div>
-                                <div class="experience-item mt-4 mb-5">
-                                    <h5><strong>Institución Educativa – Prácticas de Mantenimiento</strong> / 6 meses</h5>
-                                    <p>Durante seis meses realicé prácticas en una institución educativa, enfocándome en el mantenimiento preventivo y correctivo de equipos de cómputo, instalación de aplicaciones y sistemas operativos Windows.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-    
-                <div class="col-lg-8 offset-lg-2" style="margin-top: 60px;">
-                    <div class="center-heading text-center">
-                        <h2>Mis <em>Proyectos</em></h2>
-                        <p>A lo largo de mi formación y experiencia he desarrollado diversos proyectos que reflejan mis habilidades en desarrollo web, automatización y gestión de sistemas informáticos. A continuación, puedes ver algunos de ellos y su respectivo redireccionamiento a su código fuente.</p>
-                    </div>
-                </div>
-    
-                <div class="col-lg-10 col-md-12 col-sm-12 mobile-bottom-fix-big" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                    <div class="owl-carousel owl-theme">
-                        <div class="item service-item">
-                            <div class="testimonial-content">
-                                <h4>Sistema de Citas Médicas</h4>
-                                <p>Aplicación web desarrollada con Django y MySQL que permite agendar, aprobar y cancelar citas médicas <a href="https://github.com/AsTEKA01/Proyecto_Salud">Codigo Fuente</a></p>
-                                <span><i class="fab fa-python text-warning"></i> Django, <i class="fas fa-database text-warning"></i> MySQL, <i class="fab fa-html5 text-warning"></i> HTML</span>
-                            </div>
-                        </div>
-    
-                        <div class="item service-item">
-                            <div class="testimonial-content">
-                                <h4>Foro de Noticias</h4>
-                                <p>Plataforma desarrollada para la comunicación de noticias de gaming y hacking. Con registro de usuarios, login, apartado de comentarios y publicación de post o noticias por los usuarios <a href="">Codigo Fuente</a></p>
-                                <span><i class="fab fa-css3-alt text-warning"></i> Tailwind, <i class="fab fa-html5 text-warning"></i> Html, <i class="fab fa-python text-warning"></i> Django</span>
-                            </div>
-                        </div>
-    
-                        <div class="item service-item">
-                            <div class="testimonial-content">
-                                <h4>ZWAR / Proximamente</h4>
-                                <p>Pagina basada en ciberseguridad cuyo propocito es que cualquier persona sin tener conocimientos previos en manejo de herramientas de pentesting pueda realizar escaneos de puertos y vulnerar entornos controlados <a href="https://github.com/AsTEKA01/ZWAR">Codigo Fuente</a></p>
-                                <span><i class="fab fa-html5 text-warning"></i> HTML, <i class="fab fa-python text-warning"></i> Django, <i class="fab fa-css3-alt text-warning"></i> Tailwind</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section bg-light" id="conocimientos">
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-10 text-center mb-4">
-                <h2><em>Tecnologias</em></h2>
-                <p class="mb-4">Nivel de dominio en tecnologías que manejo:</p>
-            </div>
-
-            <div class="col-md-10">
-
-                <div class="mb-4">
-                    <h5><img src="assets/images/linux.png" width="20"> Linux</h5>
-                    <div class="progress">
-                        <div class="progress-bar bg-warning" style="width: 90%;">Intermedio-Alto (90%)</div>
-                    </div>
-                </div>
-                <div class="mb-4">
-                    <h5><i class="fas fa-database"></i> MySQL server</h5>
-                    <div class="progress">
-                        <div class="progress-bar bg-warning" style="width: 85%;">Intermedio-Alto (85%)</div>
-                    </div>
-                </div>
-                <div class="mb-4">
-                    <h5><img src="assets/images/django.png" width="20"> Django</h5>
-                    <div class="progress">
-                        <div class="progress-bar bg-warning" style="width: 80%;">Intermedio-Alto (80%)</div>
-                    </div>
-                </div>
-                <div class="mb-4">
-                    <h5><i class="fab fa-html5"></i> HTML</h5>
-                    <div class="progress">
-                        <div class="progress-bar bg-warning" style="width: 60%;">Intermedio (60%)</div>
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <h5><i class="fab fa-css3-alt"></i> CSS</h5>
-                    <div class="progress">
-                        <div class="progress-bar bg-warning" style="width: 60%;">Intermedio (60%)</div>
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <h5><i class="fab fa-bootstrap"></i> Bootstrap</h5>
-                    <div class="progress">
-                        <div class="progress-bar bg-warning" style="width: 60%;">Intermedio (60%)</div>
-                    </div>
-                </div>
-
-                
-
-                
-
-            </div>
-        </div>
-    </div>
-</section>
-
-    <footer id="contact-us">
-        <div class="container">
-            <div class="footer-content">
-                <div class="row">
-                    <div class="col-lg-6 col-md-12 col-sm-12">
                         
-                    </div>
-                    <div class="right-content col-lg-6 col-md-12 col-sm-12">
-                        <h2>Contactame <em>Ahora</em></h2>
-                        <div class="contact-info">
-                            <h3 class="mb-4">Información de Contacto</h3>
-                            <ul class="list-unstyled">
-                                <li><strong>Nombre:</strong> Santiago Camacho Parra</li>
-                                <li><strong>Teléfono:</strong> +57 321457315</li>
-                                <li><strong>Correo:</strong> <a href="mailto:miemail@correo.com">snatiago128@gmail.com</a></li>
-                                <li><strong>Ubicación:</strong> Garzón, Huila - Colombia</li>
-                            </ul>
+                        <div class="timeline-item">
+                            <h4 class="fw-bold mb-2">Prácticas de Mantenimiento - Institución Educativa</h4>
+                            <div class="text-primary fw-bold mb-3">6 meses</div>
+                            <p class="text-muted mb-0">
+                                Realicé mantenimiento preventivo y correctivo de equipos de cómputo, instalación 
+                                de aplicaciones y sistemas operativos Windows, garantizando el funcionamiento 
+                                óptimo de la infraestructura tecnológica educativa.
+                            </p>
                         </div>
-                        <h3 class="mb-4">Redes Sociales</h3>
-                        <ul class="social">
-                            <li>
-                                <a href="https://x.com/Santiago_2390">
-                                    <img src="assets/images/x.png" alt="Mi Icono" style="width:20px; height:20px;">
-                                </a>
-                            </li>
-                            <li><a href="https://github.com/AsTEKA01"><i class="fa fa-github"></i></a></li>
-                            <li><a href="https://www.linkedin.com/in/santiago-parra-00843b275/"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="sub-footer">
-                        <p>Copyright & copy; 2025 | Santiago Camacho Parra</p>
+                        
+                        <div class="timeline-item">
+                            <h4 class="fw-bold mb-2">Formación Académica</h4>
+                            <div class="text-primary fw-bold mb-3">SENA</div>
+                            <div class="mb-0">
+                                <p class="fw-bold mb-1">Tecnólogo en Análisis y Desarrollo de Software</p>
+                                <p class="fw-bold mb-2">Técnico en Sistemas</p>
+                                <p class="text-muted">
+                                    Formación integral en desarrollo de software, bases de datos, y administración de sistemas.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <section class="marquee-section">
-            <div class="marquee-container">
-                <div class="marquee-track">
-                <span>Python &nbsp; • &nbsp; Django &nbsp; • &nbsp; Bootstrap &nbsp; • &nbsp; MySQL &nbsp; • &nbsp; HTML &nbsp; • &nbsp; CSS &nbsp; • &nbsp; Bash &nbsp; • &nbsp; Git &nbsp; • &nbsp; Kali Linux &nbsp; • &nbsp; Servidores</span>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="proyectos" class="section-padding">
+        <div class="container">
+            <h2 class="section-title fade-in">Mis Proyectos</h2>
+            <p class="section-subtitle fade-in">
+                Soluciones innovadoras que demuestran mis habilidades técnicas
+            </p>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <div class="project-card">
+                        <div class="p-4">
+                            <h4 class="fw-bold mb-3">Sistema de Citas Médicas</h4>
+                            <p class="text-muted mb-3">
+                                Aplicación web completa para la gestión de citas médicas con funcionalidades 
+                                de agendamiento, aprobación y cancelación. Incluye panel administrativo y 
+                                sistema de notificaciones.
+                            </p>
+                            <div class="mb-3">
+                                <span class="tech-tag">Django</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">HTML/CSS</span>
+                                <span class="tech-tag">Bootstrap</span>
+                            </div>
+                            <a href="https://github.com/AsTEKA01/Proyecto_Salud" 
+                               class="text-decoration-none text-primary fw-bold">
+                                <i class="fab fa-github me-2"></i>Ver Código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <div class="project-card">
+                        <div class="p-4">
+                            <h4 class="fw-bold mb-3">Foro de Noticias</h4>
+                            <p class="text-muted mb-3">
+                                Plataforma de comunicación especializada en gaming y hacking con sistema 
+                                de registro, autenticación, comentarios y publicación de contenido por 
+                                parte de los usuarios.
+                            </p>
+                            <div class="mb-3">
+                                <span class="tech-tag">Django</span>
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">Tailwind CSS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <div class="project-card">
+                        <div class="p-4">
+                            <h4 class="fw-bold mb-3">ZWAR - Herramienta de Ciberseguridad</h4>
+                            <p class="text-muted mb-3">
+                                Plataforma educativa de ciberseguridad que permite a usuarios sin experiencia 
+                                previa realizar escaneos de puertos y pruebas de penetración en entornos controlados.
+                            </p>
+                            <div class="mb-3">
+                                <span class="tech-tag">Django</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Tailwind CSS</span>
+                                <span class="tech-tag">Security Tools</span>
+                            </div>
+                            <a href="https://github.com/AsTEKA01/ZWAR" 
+                               class="text-decoration-none text-primary fw-bold">
+                                <i class="fab fa-github me-2"></i>Ver Código
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title fade-in">Hablemos</h2>
+            <p class="section-subtitle fade-in">
+                ¿Interesado en trabajar juntos? Me encantaría conocer tu proyecto
+            </p>
+            
+            <div class="row g-4">
+                <div class="col-lg-6 fade-in">
+                    <div class="contact-card">
+                        <h4 class="fw-bold mb-4">Información de Contacto</h4>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Santiago Camacho Parra</h5>
+                                <p class="text-muted mb-0">Desarrollador Backend</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Teléfono</h5>
+                                <p class="text-muted mb-0">+57 321 457 315</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Email</h5>
+                                <p class="text-muted mb-0">snatiago128@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Ubicación</h5>
+                                <p class="text-muted mb-0">Garzón, Huila - Colombia</p>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <a href="https://github.com/Ask-os" class="social-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/santiago-parra-00843b275/" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://x.com/Santiago_2390" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 fade-in">
+                    <div class="contact-card">
+                        <h4 class="fw-bold mb-4">¿Por qué trabajar conmigo?</h4>
+                        
+                        <div class="mb-4">
+                            <h5 class="text-primary mb-2">
+                                <i class="fas fa-rocket me-2"></i>Enfoque en Resultados
+                            </h5>
+                            <p class="text-muted">Desarrollo soluciones que generan valor real para tu negocio</p>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h5 class="text-primary mb-2"><i class="fas fa-shield-alt me-2"></i>Código Seguro y Limpio</h5>
+                            <p class="text-muted">Escribo código mantenible siguiendo las mejores prácticas</p>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h5 class="text-primary mb-2">
+                                <i class="fas fa-clock me-2"></i>Entrega Puntual
+                            </h5>
+                            <p class="text-muted">Respeto los tiempos acordados y mantengo comunicación constante</p>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h5 class="text-primary mb-2">
+                                <i class="fas fa-tools me-2"></i>Soporte Continuo
+                            </h5>
+                            <p class="text-muted">Ofrezco mantenimiento y mejoras posteriores al desarrollo</p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <a href="mailto:snatiago128@gmail.com" class="btn-custom btn-primary-custom">
+                                <i class="fas fa-paper-plane"></i>
+                                Enviar Mensaje
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Marquee Section -->
+    <div class="marquee">
+        <div class="marquee-content">
+            Disponible para proyectos freelance • Desarrollo Backend con Python y Django • 
+            Consultoría en bases de datos • Automatización de procesos • 
+            ¿Tienes un proyecto en mente? ¡Hablemos! • 
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Santiago Camacho. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <script src="assets/js/jquery-2.1.0.min.js"></script>
-    <script src="assets/js/popper.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/owl-carousel.js"></script>
-    <script src="assets/js/scrollreveal.min.js"></script>
-    <script src="assets/js/waypoints.min.js"></script>
-    <script src="assets/js/jquery.counterup.min.js"></script>
-    <script src="assets/js/imgfix.min.js"></script>
-    <script src="assets/js/custom.js"></script>
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        
+        // Smooth scrolling for navbar links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.15)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Progress bar animation
+        const animateProgressBars = () => {
+            const progressBars = document.querySelectorAll('.progress-bar-custom');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        };
+
+        // Animate progress bars when skills section is visible
+        const skillsSection = document.querySelector('#habilidades');
+        const skillsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateProgressBars();
+                    skillsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (skillsSection) {
+            skillsObserver.observe(skillsSection);
+        }
+
+        // Add active class to navbar links on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Typing effect for hero title (optional enhancement)
+        const heroTitle = document.querySelector('.hero-title');
+        if (heroTitle) {
+            const text = heroTitle.innerHTML;
+            heroTitle.innerHTML = '';
+            let i = 0;
+            
+            const typeWriter = () => {
+                if (i < text.length) {
+                    heroTitle.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            };
+            
+            // Start typing effect after a short delay
+            setTimeout(typeWriter, 500);
+        }
+
+        // Contact form validation (if you add a form later)
+        const validateEmail = (email) => {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        };
+
+        // Dynamic year in footer
+        const currentYear = new Date().getFullYear();
+        const footerYear = document.querySelector('.footer p');
+        if (footerYear) {
+            footerYear.innerHTML = footerYear.innerHTML.replace('2025', currentYear);
+        }
+
+        // Preloader (optional)
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+
+        // Add some interactivity to project cards
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-15px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add pulse animation to contact button
+        const contactBtn = document.querySelector('a[href="#contacto"]');
+        if (contactBtn) {
+            setInterval(() => {
+                contactBtn.style.animation = 'pulse 0.5s ease-in-out';
+                setTimeout(() => {
+                    contactBtn.style.animation = '';
+                }, 500);
+            }, 5000);
+        }
+    
+    </script>
+
 </body>
 </html>
