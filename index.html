@@ -579,54 +579,6 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experiencia" class="section-padding bg-light">
-        <div class="container">
-            <h2 class="section-title fade-in">Experiencia Profesional</h2>
-            <p class="section-subtitle fade-in">
-                Mi trayectoria profesional y formación académica
-            </p>
-            
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="timeline fade-in">
-                        <div class="timeline-item">
-                            <h4 class="fw-bold mb-2">Soporte Técnico - Entidad Pública</h4>
-                            <div class="text-primary fw-bold mb-3">Actualmente</div>
-                            <p class="text-muted mb-0">
-                                Brindé soporte técnico integral en sistemas informáticos, incluyendo mantenimiento 
-                                de equipos, gestión de backups de bases de datos y apoyo en procesos de gestión 
-                                contable, mejorando la eficiencia operativa de la institución.
-                            </p>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <h4 class="fw-bold mb-2">Prácticas de Mantenimiento - Institución Educativa</h4>
-                            <div class="text-primary fw-bold mb-3">1 AÑO</div>
-                            <p class="text-muted mb-0">
-                                Realicé mantenimiento preventivo y correctivo de equipos de cómputo, instalación 
-                                de aplicaciones y sistemas operativos Windows, garantizando el funcionamiento 
-                                óptimo de la infraestructura tecnológica educativa.
-                            </p>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <h4 class="fw-bold mb-2">Formación Académica</h4>
-                            <div class="text-primary fw-bold mb-3">SENA</div>
-                            <div class="mb-0">
-                                <p class="fw-bold mb-1">Tecnólogo en Análisis y Desarrollo de Software</p>
-                                <p class="fw-bold mb-2">Técnico en Sistemas</p>
-                                <p class="text-muted">
-                                    Formación integral en desarrollo de software, bases de datos, y administración de sistemas.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Projects Section -->
     <section id="proyectos" class="section-padding">
         <div class="container">
@@ -634,15 +586,19 @@
             <p class="section-subtitle fade-in">
                 Soluciones innovadoras que demuestran mis habilidades técnicas
             </p>
-            
+
+            <!-- Fila de proyectos -->
+            <div class="row g-4">
+
+                <!-- Proyecto Empugar -->
                 <div class="col-lg-4 col-md-6 fade-in">
                     <div class="project-card">
                         <div class="p-4">
-                            <h4 class="fw-bold mb-3">Sistema de Gestión Documental Empugar</h4>
+                            <h4 class="fw-bold mb-3">Sistema de Gestión Documental - Empugar</h4>
                             <p class="text-muted mb-3">
-                                Sistema web desarrollado para optimizar el flujo de inventario y la gestión documental en entidades públicas. 
-                                Cuenta con un administrador de archivos tipo file manager que permite organizar carpetas, registrar 
-                                documentos por categorías (CDP, certificados, pagos, etc.), y mantener el control de versiones de forma centralizada.
+                                Aplicación web desarrollada para optimizar el flujo de inventario y la gestión documental en entidades públicas. 
+                                Incluye un administrador de archivos tipo file manager que permite organizar carpetas, registrar documentos 
+                                por categorías (CDP, certificados, pagos, etc.) y mantener el control de versiones de forma centralizada.
                             </p>
                             <div class="mb-3">
                                 <span class="tech-tag">Django</span>
@@ -650,22 +606,21 @@
                                 <span class="tech-tag">Tailwind CSS</span>
                                 <span class="tech-tag">MySQL</span>
                             </div>
-                            <a href="#" 
-                           class="text-decoration-none text-primary fw-bold">
-                            <i class="fab fa-github me-2"></i>Codigo Reservado
-                        </a>
+                            <a href="#" class="text-decoration-none text-primary fw-bold">
+                                <i class="fab fa-github me-2"></i>Código Reservado
+                            </a>
                         </div>
                     </div>
                 </div>
-            
+
+                <!-- Proyecto Foro de Noticias -->
                 <div class="col-lg-4 col-md-6 fade-in">
                     <div class="project-card">
                         <div class="p-4">
                             <h4 class="fw-bold mb-3">Foro de Noticias</h4>
                             <p class="text-muted mb-3">
-                                Plataforma de comunicación especializada en gaming y hacking con sistema 
-                                de registro, autenticación, comentarios y publicación de contenido por 
-                                parte de los usuarios.
+                                Plataforma de comunicación especializada en gaming y hacking, con sistema de registro, autenticación, 
+                                comentarios y publicación de contenido por parte de los usuarios.
                             </p>
                             <div class="mb-3">
                                 <span class="tech-tag">Django</span>
@@ -675,14 +630,15 @@
                         </div>
                     </div>
                 </div>
-                
+
+                <!-- Proyecto ZWAR -->
                 <div class="col-lg-4 col-md-6 fade-in">
                     <div class="project-card">
                         <div class="p-4">
                             <h4 class="fw-bold mb-3">ZWAR - Herramienta de Ciberseguridad</h4>
                             <p class="text-muted mb-3">
-                                Plataforma educativa de ciberseguridad que permite a usuarios sin experiencia 
-                                previa realizar escaneos de puertos y pruebas de penetración en entornos controlados.
+                                Plataforma educativa que permite a usuarios sin experiencia realizar escaneos de puertos y pruebas de penetración 
+                                en entornos controlados, facilitando el aprendizaje práctico en ciberseguridad.
                             </p>
                             <div class="mb-3">
                                 <span class="tech-tag">Django</span>
@@ -690,16 +646,16 @@
                                 <span class="tech-tag">Tailwind CSS</span>
                                 <span class="tech-tag">Security Tools</span>
                             </div>
-                            <a href="https://github.com/AsTEKA01/ZWAR" 
-                               class="text-decoration-none text-primary fw-bold">
+                            <a href="https://github.com/AsTEKA01/ZWAR" class="text-decoration-none text-primary fw-bold">
                                 <i class="fab fa-github me-2"></i>Ver Código
                             </a>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> <!-- Cierre de la fila de proyectos -->
         </div>
     </section>
+
 
     <!-- Contact Section -->
     <section id="contacto" class="section-padding bg-light">
