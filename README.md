@@ -3,6 +3,8 @@
 ¡Bienvenido a mi portafolio! 🚀  
 Soy desarrollador web enfocado en Python y Django, con una fuerte inclinación hacia la ciberseguridad, el diseño funcional y la automatización de procesos.
 
+![Logo del proyecto](assets/images/home.png)
+
 ---
 
 ## **🧠 Sobre mí**
